@@ -56,10 +56,10 @@ def evaluation(board):
     elif len(set(np.diag(np.fliplr(df)))) == 1 and df.iloc[0, 2]:
         return df.iloc[0, 2]
     for i in range(dim):
-        # return the winner on row
+        # renvoyer le gagnant sur les lignes
         if len(df.iloc[i, :].unique()) == 1 and df.iloc[i, 0] != 0:
             return df.iloc[i, 0]
-        # return the winner on columns
+        # rrenvoyer le gagnant sur les colonnes
         elif len(df.iloc[:, i].unique()) == 1 and df.iloc[0, i] != 0:
             return df.iloc[i, 0]
     if not df.apply(lambda x: x.isin([0]).any()).any():
@@ -250,7 +250,7 @@ def main():
     # Maintenant, nous jouons un jeu contre notre modèle et voyons comment il se débrouille bien
     # 1si vous voulez que la machine commence par X
     # 2 si vous voulez que la machine commence par Y
-    # si vous voulez que le jeu commence au hasard .
+    # sinon le jeu commence au hasard (pile ou face) .
     jouer_un_match(3,model)
 
 
